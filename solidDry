@@ -1,0 +1,75 @@
+from abc import ABC, abstractmethod
+
+# Applying SRP: Separate classes for Employee and Salary Management
+class Employee:
+    def __init__(self, name, emp_id):
+        self.name = name
+        self.emp_id = emp_id
+
+class SalaryCalculator:
+    @staticmethod
+    def calculate_bonus(salary, percentage):
+        return salary * (percentage / 100)
+
+# Applying OCP: Extend functionality without modifying existing classes
+class EmployeeBonus(ABC):
+    @abstractmethod
+    def get_bonus(self, salary):
+        pass
+
+class ManagerBonus(EmployeeBonus):
+    def get_bonus(self, salary):
+        return SalaryCalculator.calculate_bonus(salary, 20)  # 20% bonus
+
+class DeveloperBonus(EmployeeBonus):
+    def get_bonus(self, salary):
+        return SalaryCalculator.calculate_bonus(salary, 15)  # 15% bonus
+
+# Applying LSP: Subclasses can replace the parent class without breaking functionality
+def print_bonus(employee, bonus_strategy, salary):
+    print(f"{employee.name}'s Bonus: {bonus_strategy.get_bonus(salary)}")
+
+# Applying ISP: Using specific, smaller interfaces
+class Workable(ABC):
+    @abstractmethod
+    def work(self):
+        pass
+
+class Reportable(ABC):
+    @abstractmethod
+    def generate_report(self):
+        pass
+
+class Developer(Employee, Workable):
+    def work(self):
+        print(f"{self.name} is writing code.")
+
+class Manager(Employee, Workable, Reportable):
+    def work(self):
+        print(f"{self.name} is managing the team.")
+
+    def generate_report(self):
+        print(f"{self.name} is preparing reports.")
+
+# Applying DIP: Depend on abstractions, not concrete implementations
+class EmployeeService:
+    def __init__(self, bonus_strategy: EmployeeBonus):
+        self.bonus_strategy = bonus_strategy
+
+    def process_bonus(self, salary):
+        return self.bonus_strategy.get_bonus(salary)
+
+# Demonstration
+manager = Manager("fahim", 110)
+developer = Developer("Muntasir", 202)
+
+manager_bonus = ManagerBonus()
+developer_bonus = DeveloperBonus()
+
+print_bonus(manager, manager_bonus, 70000)
+print_bonus(developer, developer_bonus, 50000)
+
+# Demonstrate ISP
+manager.work()
+manager.generate_report()
+developer.work()
