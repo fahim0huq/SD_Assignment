@@ -1,0 +1,155 @@
+/* App.css */
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: #1f1f1f;
+}
+
+.container {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 0;
+}
+
+
+
+
+.navbar {
+  background-color: #1f2937;
+  padding: 20px 30px;
+  color: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.greeting {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.counter {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.counter p {
+  font-size: 18px;
+}
+
+.counter button {
+  padding: 10px 20px;
+  background-color: #6366f1;
+  border: none;
+  color: white;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.counter button:hover {
+  background-color: #4f46e5;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 30px 0 15px;
+  color: #111827;
+  border-left: 4px solid #6366f1;
+  padding-left: 12px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: 20px;
+  width: 260px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h4 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  max-width: 400px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+}
+
+.form button {
+  padding: 12px;
+  background-color: #10b981;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.form button:hover {
+  background-color: #059669;
+}
+.form-section {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.submitted {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 10px;
+  color: #065f46;
+}
